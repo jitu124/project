@@ -3,7 +3,7 @@ pipeline {
 	
     environment {
           dockerImage = ''
-	  registry = 'jitu124/tom'
+	  registry = 'jitu124/tomcat'
     }
 	
     stages {
