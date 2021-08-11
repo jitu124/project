@@ -1,23 +1,36 @@
 pipeline {
     agent any
-
+	
+    environment {
+          dockerImage = ''
+	  registry = 'jitu124/tom'
+    }
+	
     stages {
-        stage('Build') {
+        stage('Validate') {
             steps {
-                echo 'Building..'
+                echo 'Validating..'
 		sh 'mvn compile'
             }
         }
-        stage('Test') {
+        stage('Unit Test') {
             steps {
                 echo 'Testing..'
 		sh 'mvn test'
             }
         }
-        stage('Deploy') {
+        stage('package') {
             steps {
-                echo 'Deploying....'
+                echo 'packing....'
+		sh 'mvn package'
             }
-        }
-    }
+	} 
+	stage('build') {
+	      steps {
+		      script {    
+		  dockerImage = docker.build registry
+	        }
+            }
+        } 
+    }     
 }
