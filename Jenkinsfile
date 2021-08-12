@@ -1,10 +1,9 @@
 pipeline {
     agent any
 
-
     environment {
 	  registry = "jitu124/tom"
-	  registryCredential = 'docker'
+	  registryCredential = 'dockerHub'
 	  dockerImage = ''
     }
 	
