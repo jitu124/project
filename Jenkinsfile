@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-	  dockerImage = 'jitu/pom'
+	  dockerImage = ''
 	  registry = 'jitu124/tom'
     }
 	
