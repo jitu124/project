@@ -46,7 +46,7 @@ pipeline {
         } 
     }	    
     post {
-       failure {
+       success {
            mail bcc: '', body: 'pipeline failed', cc: 'jitu.pretam@gmail.com', from: '', replyTo: '', subject: 'pipeline', to: 'projectdevops1@gmail.com'
        }
     }         
