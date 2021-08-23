@@ -19,10 +19,17 @@ pipeline {
 		sh 'mvn test'
             }
         }
-        stage('package') {
+         stage("build & SonarQube analysis") 
+            steps {
+              withSonarQubeEnv('SonarQube') {
+                sh 'mvn sonar:sonar'
+              }
+            }
+          }
+	  stage('package') {
             steps {
                 echo 'packing....'
-		sh 'mvn package'
+		sh 'mvn clean package'
             }
 	} 
 	stage('build') {
