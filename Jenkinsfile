@@ -44,5 +44,10 @@ pipeline {
 	        }
             }
         } 
+	post {
+          always {
+           mail bcc: '', body: 'pipeline failed', cc: 'jitu.pretam@gmail.com', from: '', replyTo: '', subject: '', to: 'projectdevops1@gmail.com'
+          }
+        }   
     }     
 }
