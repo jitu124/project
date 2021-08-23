@@ -34,7 +34,7 @@ pipeline {
 	} 
 	stage('deploy') {
 	   steps {
-	      	nexusArtifactUploader artifacts: [[artifactId: 'WebAppCal', classifier: '', file: 'target/WebAppCal-1.2.05.war', type: 'war']], credentialsId: 'Nexus', groupId: 'com.web.cal', nexusUrl: 'http://3.226.239.132:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases', version: '1.2.05'   
+	      	nexusArtifactUploader artifacts: [[artifactId: 'WebAppCal', classifier: '', file: 'target/WebAppCal-1.2.05.war', type: 'war']], credentialsId: 'Nexus', groupId: 'com.web.cal', nexusUrl: 'http://3.226.239.132:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases', version: '1.2.05'   
 	   }
 	}	
 	stage('build') {
